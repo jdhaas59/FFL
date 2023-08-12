@@ -21,7 +21,7 @@ model matchups {
 
 model results {
   result_id      Int   @id @default(autoincrement())
-  team_id        Int
+  team_id        Int  
   final          Int
   points_for     Float
   points_against Float
