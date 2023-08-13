@@ -11,11 +11,6 @@ export default async function IndexPage({
 }: {
 }) {
   
-
-    // Get results
-    // const results = await prisma.results.findMany({
-
-    // })
     const groupResults = await prisma.results.groupBy({
       by: ['team_id'],
       where: {

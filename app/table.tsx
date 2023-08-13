@@ -8,6 +8,9 @@ import {
   Text
 } from '@tremor/react';
 
+import Link from 'next/link';
+
+
 // interface User {
 //   id: number;
 //   name: string;
@@ -45,7 +48,7 @@ export default async function UsersTable({ sortedResults }: { sortedResults: Res
       <TableBody>
         {sortedResults.map((mresult) => (
           <TableRow key={mresult.team_id}>
-            <TableCell>{mresult.teamName}</TableCell>
+            <TableCell><Link href={`/organization/${mresult.team_id}`}>{mresult.teamName}</Link></TableCell>
             <TableCell>
               <Text>{mresult._sum.wins}</Text>
             </TableCell>
