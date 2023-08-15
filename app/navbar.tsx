@@ -8,7 +8,8 @@ import { signIn, signOut } from 'next-auth/react';
 import Image from 'next/image';
 
 const navigation = [
-  { name: 'FFL All-time', href: '/' },
+  { name: 'Home', href: '/home' },
+  { name: 'History', href: '/' },
   { name: 'Playground', href: '/playground' }
 ];
 

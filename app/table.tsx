@@ -48,7 +48,7 @@ export default async function UsersTable({ sortedResults }: { sortedResults: Res
       <TableBody>
         {sortedResults.map((mresult) => (
           <TableRow key={mresult.team_id}>
-            <TableCell><Link href={`/organization/${mresult.team_id}`}>{mresult.teamName}</Link></TableCell>
+            <TableCell><Link className='text-sky-500' href={`/organization/${mresult.team_id}`}>{mresult.teamName}</Link></TableCell>
             <TableCell>
               <Text>{mresult._sum.wins}</Text>
             </TableCell>
