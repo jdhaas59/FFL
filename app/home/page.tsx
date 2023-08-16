@@ -2,8 +2,15 @@ import React from 'react'
 import { Card, Title, Text } from '@tremor/react'
 import Headlines from './headlines'
 import Standings from './standings'
+import {prisma} from '../../lib/prisma'
 
-export default function page() {
+export default async function page() {
+
+    const headlines = await prisma.headlines.findMany({
+        where: {
+            archive: false    
+        }
+        });
   return (
 
     <main className='p-4 md:p-10 mx-auto max-w-7xl'>
@@ -12,7 +19,7 @@ export default function page() {
         Presented by Costco Pharmacy
       </Text>
     <div className="flex m-8">
-    <Headlines />
+    <Headlines headlines={headlines} />
     <Standings />
     </div>
     </main>

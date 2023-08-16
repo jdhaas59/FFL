@@ -8,36 +8,44 @@ datasource db {
 }
 
 model matchups {
-  match_id     Int     @id @default(autoincrement())
-  game_id      String
-  home_team    String
-  home_team_id Int
-  away_team    String
-  away_team_id Int
-  home_score   Float
-  away_score   Float
-  playoff      Boolean
+  match_id     Int      @id @default(autoincrement())
+  game_id      String?  @db.VarChar(50)
+  home_team    String?  @db.VarChar(50)
+  home_team_id Int?
+  away_team    String?  @db.VarChar(50)
+  away_team_id Int?
+  home_score   Float?   @db.Real
+  away_score   Float?   @db.Real
+  playoff      Boolean?
 }
 
 model results {
-  result_id      Int   @id @default(autoincrement())
-  team_id        Int  
-  final          Int
-  points_for     Float
-  points_against Float
-  wins           Int
-  ties           Int
-  losses         Int
-  acqs           Int
-  trades         Int
-  year           Int
+  result_id      Int    @id @default(autoincrement())
+  team_id        Int?
+  final          Int?
+  points_for     Float? @db.Real
+  points_against Float? @db.Real
+  wins           Int?
+  ties           Int?
+  losses         Int?
+  acqs           Int?
+  trades         Int?
+  year           Int?
 }
 
 model teams {
-  teamyear_id Int    @id @default(autoincrement())
-  team_id     Int
-  team_name   String
-  team_owner  String
-  team_abbv   String
-  year        Int
+  teamyear_id Int     @id @default(autoincrement())
+  team_id     Int?
+  team_name   String? @db.VarChar(50)
+  team_owner  String? @db.VarChar(50)
+  team_abbv   String? @db.VarChar(50)
+  year        Int?
+}
+
+model headlines {
+  h_id     Int      @id @default(autoincrement())
+  week     Int?
+  headline String?  @db.VarChar
+  year     Int?
+  archive  Boolean?
 }
