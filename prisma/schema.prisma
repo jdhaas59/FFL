@@ -49,3 +49,12 @@ model headlines {
   year     Int?
   archive  Boolean?
 }
+
+model power_rankings {
+  pr_id     Int      @id @default(autoincrement())
+  week      Int?
+  team_name String?  @db.VarChar
+  rank      Int?
+  year      Int?
+  archive   Boolean?
+}

@@ -3,10 +3,16 @@ import { Card, Title, Text } from '@tremor/react'
 import Headlines from './headlines'
 import Standings from './standings'
 import {prisma} from '../../lib/prisma'
+import Power from './power'
 
 export default async function page() {
 
     const headlines = await prisma.headlines.findMany({
+        where: {
+            archive: false    
+        }
+        });
+    const prankings = await prisma.power_rankings.findMany({
         where: {
             archive: false    
         }
@@ -18,8 +24,9 @@ export default async function page() {
     <Text className='text-center text-lg'>
         Presented by Costco Pharmacy
       </Text>
-    <div className="flex m-8">
+    <div className="flex flex-wrap m-8">
     <Headlines headlines={headlines} />
+    <Power prankings={prankings}/>
     <Standings />
     </div>
     </main>
