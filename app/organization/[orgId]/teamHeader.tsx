@@ -14,11 +14,11 @@ interface Team {
 export default function TeamHeader({ team }: { team: Team[] }) {
   return (
     <div>
-    {team.map((team) => (
-    <div key={team.teamyear_id}>
-      <Title >{team.team_name}</Title>
-      <Text>
-        {team.team_owner}
+    {team.map((t) => (
+    <div>
+      <Title key={t.teamyear_id}>{t.team_name}</Title>
+      <Text key={t.teamyear_id}>
+        {t.team_owner}
       </Text>
     </div>
     ))}
