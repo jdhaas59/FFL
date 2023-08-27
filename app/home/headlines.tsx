@@ -3,10 +3,10 @@ import React from 'react'
 
 interface Headline {
     h_id: number
-    week: number,
-    headline: string,
-    year: number,
-    archive: boolean
+    week: number | null,
+    headline: string | null,
+    year: number| null,
+    archive: boolean | null
   }
 
 export default function Headlines({ headlines }: { headlines: Headline[] }) {

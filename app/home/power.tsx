@@ -12,11 +12,11 @@ import {
 
 interface PRank {
 pr_id: number,
-week: number,
-team_name: string,
-rank: number,
-year: number,
-archive: boolean
+week: number | null,
+team_name: string | null,
+rank: number | null,
+year: number | null,
+archive: boolean | null
 }
 
 export default function Power({ prankings }: { prankings: PRank[] }) {

@@ -10,16 +10,16 @@ import {
     
   interface Result {
     result_id: number;
-    team_id: number;
-    final: number;
-    points_for: number;
-    points_against: number;
-    wins: number;
-    ties: number;
-    losses: number;
-    acqs: number;
-    trades: number;
-    year: number;
+    team_id: number | null;
+    final: number | null;
+    points_for: number | null;
+    points_against: number | null;
+    wins: number | null;
+    ties: number | null;
+    losses: number | null;
+    acqs: number | null;
+    trades: number | null;
+    year: number | null;
   }
   
   export default async function ResultsTable({ results }: { results: Result[] }) {
