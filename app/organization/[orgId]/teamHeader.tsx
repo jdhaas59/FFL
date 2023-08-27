@@ -15,8 +15,8 @@ export default function TeamHeader({ team }: { team: Team[] }) {
   return (
     <div>
     {team.map((team) => (
-    <div>
-      <Title key={team.team_id}>{team.team_name}</Title>
+    <div key={team.team_id}>
+      <Title >{team.team_name}</Title>
       <Text>
         {team.team_owner}
       </Text>
