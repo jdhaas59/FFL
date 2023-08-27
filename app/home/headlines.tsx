@@ -5,7 +5,8 @@ interface Headline {
     h_id: number
     week: number,
     headline: string,
-    year: number
+    year: number,
+    archive: boolean
   }
 
 export default function Headlines({ headlines }: { headlines: Headline[] }) {
