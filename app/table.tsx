@@ -11,25 +11,20 @@ import {
 import Link from 'next/link';
 
 
-// interface User {
-//   id: number;
-//   name: string;
-//   username: string;
-//   email: string;
-// }
+
 
 interface Result {
   _sum: {
-    wins: number;
-    losses: number;
+    wins: number | null;
+    losses: number | null;
   };
   _avg: {
-    points_for: number;
+    points_for: number | null;
     points_against: number;
-    final: number;
+    final: number | null;
   };
-  team_id: number;
-  teamName: string;
+  team_id: number | null;
+  teamName: string | null;
 }
 
 export default async function UsersTable({ sortedResults }: { sortedResults: Result[] }) {
