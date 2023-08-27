@@ -7,9 +7,7 @@ import {prisma} from '../lib/prisma'
 
 export const dynamic = 'force-dynamic';
 
-export default async function IndexPage({
-}: {
-}) {
+export default async function IndexPage() {
   
     const groupResults = await prisma.results.groupBy({
       by: ['team_id'],
@@ -49,10 +47,7 @@ export default async function IndexPage({
 
     const sortedResults = mappedResults.slice().sort((a, b) => b._sum.wins - a._sum.wins);
 
-}) {
 
-
-const teams = await prisma.teams.findMany()
 // console.log(teams)
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
@@ -65,12 +60,6 @@ const teams = await prisma.teams.findMany()
         {/* <UsersTable users={users} /> */}
         <UsersTable sortedResults={sortedResults} />
       </Card>
-      <h1 className="font-bold">Todos</h1>
-      <ul>
-        {teams.map((team) => (
-          <li key={team.teamyear_id}>{team.team_name}</li>
-        ))}
-      </ul>
     </main>
   );
 }
