@@ -49,8 +49,11 @@ export default async function IndexPage({
 
     const sortedResults = mappedResults.slice().sort((a, b) => b._sum.wins - a._sum.wins);
 
-  // console.log(sortedArray)
+}) {
 
+
+const teams = await prisma.teams.findMany()
+// console.log(teams)
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
       <Title>The FLL presented by Costco Pharmacy</Title>
@@ -62,6 +65,12 @@ export default async function IndexPage({
         {/* <UsersTable users={users} /> */}
         <UsersTable sortedResults={sortedResults} />
       </Card>
+      <h1 className="font-bold">Todos</h1>
+      <ul>
+        {teams.map((team) => (
+          <li key={team.teamyear_id}>{team.team_name}</li>
+        ))}
+      </ul>
     </main>
   );
 }

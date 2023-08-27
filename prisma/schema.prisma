@@ -57,4 +57,38 @@ model power_rankings {
   rank      Int?
   year      Int?
   archive   Boolean?
+=======
+  match_id     Int     @id @default(autoincrement())
+  game_id      String
+  home_team    String
+  home_team_id Int
+  away_team    String
+  away_team_id Int
+  home_score   Float
+  away_score   Float
+  playoff      Boolean
+}
+
+model results {
+  result_id      Int   @id @default(autoincrement())
+  team_id        Int
+  final          Int
+  points_for     Float
+  points_against Float
+  wins           Int
+  ties           Int
+  losses         Int
+  acqs           Int
+  trades         Int
+  year           Int
+}
+
+model teams {
+  teamyear_id Int    @id @default(autoincrement())
+  team_id     Int
+  team_name   String
+  team_owner  String
+  team_abbv   String
+  year        Int
+
 }
