@@ -45,7 +45,8 @@ export default async function IndexPage() {
         }
     })
 
-    const sortedResults = mappedResults.slice().sort((a, b) => b._sum.wins - a._sum.wins);
+    const sortedResults = mappedResults.slice().sort((a, b) => (b._sum.wins ?? 0) - (a._sum.wins ?? 0));
+
 
 
 // console.log(teams)
