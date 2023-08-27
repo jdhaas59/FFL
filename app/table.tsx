@@ -20,7 +20,7 @@ interface Result {
   };
   _avg: {
     points_for: number | null;
-    points_against: number;
+    points_against: number | null;
     final: number | null;
   };
   team_id: number | null;
