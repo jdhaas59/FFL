@@ -17,7 +17,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar({ user }: { user: any }) {
+export default function Navbar() {
   const pathname = usePathname();
 
   return (
@@ -27,7 +27,7 @@ export default function Navbar({ user }: { user: any }) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 justify-between">
               <div className="flex">
-                <div className="flex flex-shrink-0 items-center">
+                {/* <div className="flex flex-shrink-0 items-center"> */}
                   {/* <svg
                     width="32"
                     height="32"
@@ -49,7 +49,7 @@ export default function Navbar({ user }: { user: any }) {
                       fill="black"
                     />
                   </svg> */}
-                </div>
+                {/* </div> */}
                 <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
                   {navigation.map((item) => (
                     <a
@@ -73,13 +73,13 @@ export default function Navbar({ user }: { user: any }) {
                   <div>
                     <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2">
                       <span className="sr-only">Open user menu</span>
-                      <Image
+                      {/* <Image
                         className="h-8 w-8 rounded-full"
                         src={user?.image || 'https://avatar.vercel.sh/leerob'}
                         height={32}
                         width={32}
                         alt={`${user?.name || 'placeholder'} avatar`}
-                      />
+                      /> */}
                     </Menu.Button>
                   </div>
                   <Transition
@@ -91,7 +91,7 @@ export default function Navbar({ user }: { user: any }) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    {/* <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {user ? (
                         <Menu.Item>
                           {({ active }) => (
@@ -121,7 +121,7 @@ export default function Navbar({ user }: { user: any }) {
                           )}
                         </Menu.Item>
                       )}
-                    </Menu.Items>
+                    </Menu.Items> */}
                   </Transition>
                 </Menu>
               </div>
@@ -157,7 +157,7 @@ export default function Navbar({ user }: { user: any }) {
                 </Disclosure.Button>
               ))}
             </div>
-            <div className="border-t border-gray-200 pt-4 pb-3">
+            {/* <div className="border-t border-gray-200 pt-4 pb-3">
               {user ? (
                 <>
                   <div className="flex items-center px-4">
@@ -198,7 +198,7 @@ export default function Navbar({ user }: { user: any }) {
                   </button>
                 </div>
               )}
-            </div>
+            </div> */}
           </Disclosure.Panel>
         </>
       )}
