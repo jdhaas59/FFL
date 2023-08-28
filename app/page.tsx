@@ -1,11 +1,9 @@
 import { Card, Title, Text } from '@tremor/react';
-// import { queryBuilder } from '../lib/planetscale';
-import Search from './search';
 import UsersTable from './table';
 import {prisma} from '../lib/prisma'
 
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export default async function IndexPage() {
   
@@ -56,9 +54,7 @@ export default async function IndexPage() {
       <Text>
         Dynasty records all-time.
       </Text>
-      {/* <Search /> */}
       <Card className="mt-6">
-        {/* <UsersTable users={users} /> */}
         <UsersTable sortedResults={sortedResults} />
       </Card>
     </main>
