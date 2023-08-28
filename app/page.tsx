@@ -38,14 +38,14 @@ export default async function IndexPage() {
     }
     });
     // then match the ratings with posts
-    const mappedResults = groupResults.map( (result, idx) => {
+    const mappedResults = groupResults.map( (result: any, idx: any) => {
         return {
             ...result,
             teamName: teams[idx].team_name
         }
     })
 
-    const sortedResults = mappedResults.slice().sort((a, b) => (b._sum.wins ?? 0) - (a._sum.wins ?? 0));
+    const sortedResults = mappedResults.slice().sort((a: any, b: any) => (b._sum.wins ?? 0) - (a._sum.wins ?? 0));
 
 
 
