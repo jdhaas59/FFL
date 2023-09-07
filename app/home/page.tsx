@@ -1,3 +1,4 @@
+// 'use client'
 import React from 'react'
 import { Card, Title, Text } from '@tremor/react'
 import Headlines from './headlines'
