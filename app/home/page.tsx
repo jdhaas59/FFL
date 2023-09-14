@@ -18,6 +18,41 @@ export default async function page() {
             archive: false    
         }
         });
+
+      const Results = await prisma.results.findMany({
+        where: {
+          year: 2023
+        },
+          orderBy: {
+            team_id: "asc"
+        }
+        })
+        //  Get teams
+        const teams = await prisma.teams.groupBy({
+          by: ['team_id', 'team_name'],
+          where: {
+            year: 2022
+          },
+          orderBy: {
+            team_id: "asc"
+        }
+        });
+        // then match the ratings with posts
+        const mappedResults = Results.map( (result: any, idx: any) => {
+            return {
+                ...result,
+                teamName: teams[idx].team_name
+            }
+        })
+    
+        const standings = mappedResults.sort((a, b) => {
+          if (a.wins !== b.wins) {
+              return b.wins - a.wins; // Sort by wins in descending order
+          }
+          return b.points_for - a.points_for; // Sort by points_for in descending order if wins are the same
+      });;
+
+      
   return (
 
     <main className='p-4 md:p-10 mx-auto max-w-7xl'>
@@ -28,7 +63,7 @@ export default async function page() {
     <div className="flex flex-wrap m-8">
     <Headlines headlines={headlines} />
     <Power prankings={prankings}/>
-    <Standings />
+    <Standings standings={standings}/>
     </div>
     </main>
   )
