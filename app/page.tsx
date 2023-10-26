@@ -52,7 +52,7 @@ export default async function IndexPage() {
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
       <Title>The FLL presented by Costco Pharmacy</Title>
       <Text>
-        Dynasty records all-time. Through 2023..
+        Dynasty records all-time. Through 2023...
       </Text>
       <Card className="mt-6">
         <UsersTable sortedResults={sortedResults} />
